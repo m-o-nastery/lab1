@@ -3,13 +3,13 @@ reset = f'{csi}0m'
 
 def x(offset,gap,paint,offset2):
     print(f'{csi}47m{" "*offset}{csi}40m{" "*paint}{csi}47m{" "*gap}{csi}40m{" "*paint}{csi}47m{" "*offset2}{csi}40m{" "*paint}{csi}47m{" "*gap}{csi}40m{" "*paint}{csi}47m{" "*offset}{reset}')
-offset = 9
-gap = 16
-paint = 5
+offset = 16
+gap = 12
+paint = 4
 offset2 = 0
 f = True
-for i in range(9):
-    if gap == 0:
+for i in range(7):
+    if gap <= 0:
         f = False
     x(offset,gap,paint,offset2)
     x(offset,gap,paint,offset2)
