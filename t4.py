@@ -14,12 +14,16 @@ def string(num, gr2):
         
 chet = sum([abs(a[i]) for i in range(0,len(a),2)])
 nechet = sum([abs(a[i]) for i in range(1, len(a),2)])
-num = 100
 gr2_num = nechet*100//chet
-gr2 = 0
-for i in range(21):
-    if num <= gr2_num:
-        gr2 = 1
-    string(num, gr2)
-    num -= 5
-print('         Чёт  Нечёт')
+
+def paint():
+    num = 100
+    gr2 = 0
+    for i in range(21):
+        if num <= gr2_num:
+            gr2 = 1
+        string(num, gr2)
+        num -= 5
+    print('         Чёт  Нечёт')
+if __name__ == '__main__':
+    paint()
