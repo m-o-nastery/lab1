@@ -3,21 +3,24 @@ reset = f'{csi}0m'
 
 def x(offset,gap,paint,offset2):
     print(f'{csi}47m{" "*offset}{csi}40m{" "*paint}{csi}47m{" "*gap}{csi}40m{" "*paint}{csi}47m{" "*offset2}{csi}40m{" "*paint}{csi}47m{" "*gap}{csi}40m{" "*paint}{csi}47m{" "*offset}{reset}')
-offset = 16
-gap = 12
-paint = 4
-offset2 = 0
-f = True
-for i in range(7):
-    if gap <= 0:
-        f = False
-    x(offset,gap,paint,offset2)
-    x(offset,gap,paint,offset2)
-    if f == False:
-        offset-=2
-        gap+=4
-        offset2-=4
-    else:
-        offset+=2
-        gap-=4
-        offset2+=4
+def paint():
+    offset = 16
+    gap = 12
+    paint = 4
+    offset2 = 0
+    f = True
+    for i in range(7):
+        if gap <= 0:
+            f = False
+        x(offset,gap,paint,offset2)
+        x(offset,gap,paint,offset2)
+        if f == False:
+            offset-=2
+            gap+=4
+            offset2-=4
+        else:
+            offset+=2
+            gap-=4
+            offset2+=4
+if __name__ == '__main__':
+    paint()
