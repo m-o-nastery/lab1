@@ -1,26 +1,43 @@
-csi = '\x1B['
-reset = f'{csi}0m'
+CSI = '\x1B['
+RESET = f'{CSI}0m'
 
-def x(offset,gap,paint,offset2):
-    print(f'{csi}47m{" "*offset}{csi}40m{" "*paint}{csi}47m{" "*gap}{csi}40m{" "*paint}{csi}47m{" "*offset2}{csi}40m{" "*paint}{csi}47m{" "*gap}{csi}40m{" "*paint}{csi}47m{" "*offset}{reset}')
-def paint():
+
+def draw_row(offset, gap, paint_width, offset2):
+    print(
+        f'{CSI}47m{" " * offset}'
+        f'{CSI}40m{" " * paint_width}'
+        f'{CSI}47m{" " * gap}'
+        f'{CSI}40m{" " * paint_width}'
+        f'{CSI}47m{" " * offset2}'
+        f'{CSI}40m{" " * paint_width}'
+        f'{CSI}47m{" " * gap}'
+        f'{CSI}40m{" " * paint_width}'
+        f'{CSI}47m{" " * offset}{RESET}'
+    )
+
+def paint_pattern():
     offset = 16
     gap = 12
-    paint = 4
+    paint_width = 4
     offset2 = 0
-    f = True
-    for i in range(7):
+    shrinking = True
+
+    for _ in range(7):
         if gap <= 0:
-            f = False
-        x(offset,gap,paint,offset2)
-        x(offset,gap,paint,offset2)
-        if f == False:
-            offset-=2
-            gap+=4
-            offset2-=4
+            shrinking = False
+
+        draw_row(offset, gap, paint_width, offset2)
+        draw_row(offset, gap, paint_width, offset2)
+
+        if not shrinking:
+            offset -= 2
+            gap += 4
+            offset2 -= 4
         else:
-            offset+=2
-            gap-=4
-            offset2+=4
+            offset += 2
+            gap -= 4
+            offset2 += 4
+
+
 if __name__ == '__main__':
-    paint()
+    paint_pattern()
