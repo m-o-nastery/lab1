@@ -1,21 +1,21 @@
-f = open('sequence.txt')
-a = [float(i) for i in f]
+with open('sequence.txt', 'r', encoding='utf-8') as f:
+    a = [float(i) for i in f]
 
-csi = '\x1B['
-reset = f'{csi}0m'
+CSI = '\x1B['
+RESET = f'{CSI}0m'
 
 
 def string(num, gr2):
     if num >= 100:
-        print(f'{num} |    {csi}47m  {reset}    {csi}47m{"  " * gr2}{reset}')
+        print(f'{num} |    {CSI}47m  {RESET}    {CSI}47m{"  " * gr2}{RESET}')
     elif num >= 10:
-        print(f' {num} |    {csi}47m  {reset}    {csi}47m{"  " * gr2}{reset}')
+        print(f' {num} |    {CSI}47m  {RESET}    {CSI}47m{"  " * gr2}{RESET}')
     else:
-        print(f'  {num} |    {csi}47m  {reset}    {csi}47m{"  " * gr2}{reset}')
+        print(f'  {num} |    {CSI}47m  {RESET}    {CSI}47m{"  " * gr2}{RESET}')
 
 
-chet = sum([abs(a[i]) for i in range(0, len(a), 2)])
-nechet = sum([abs(a[i]) for i in range(1, len(a), 2)])
+chet = sum(abs(a[i]) for i in range(0, len(a), 2))
+nechet = sum(abs(a[i]) for i in range(1, len(a), 2))
 gr2_num = nechet * 100 // chet
 
 

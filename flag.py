@@ -1,18 +1,18 @@
-csi = '\x1B['
-reset = f'{csi}0m'
+CSI = '\x1B['
+RESET = f'{CSI}0m'
 
 
-def flag2(color):
-    print(f'{csi}{color}m{" " * 50}{reset}')
-    print(f'{csi}{color}m{" " * 50}{reset}')
+def print_flag_stripe(color):
+    print(f'{CSI}{color}m{" " * 50}{RESET}')
+    print(f'{CSI}{color}m{" " * 50}{RESET}')
 
 
-colors = [41, 47, 44]
+COLORS = [41, 47, 44]
 
 
 def flag():
-    for color in colors:
-        flag2(color)
+    for color in COLORS:
+        print_flag_stripe(color)
 
 
 if __name__ == '__main__':

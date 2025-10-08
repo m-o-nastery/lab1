@@ -1,39 +1,38 @@
-csi = '\x1B['
-reset = f'{csi}0m'
+CSI = '\x1B['
+RESET = f'{CSI}0m'
 
 
-def graph(height, width, line, num):
+def graph(width, num):
     if num >= 10:
         if num % 2 == 0:
             print(
-                f'''{num} |{csi}47m{" " * width}{csi}42m{" "}{csi}47m{" " * (10 + 10 - width)}{reset}'''
+                f'{num} |{CSI}47m{" " * width}{CSI}42m{" "}{CSI}47m{" " * (10 + 10 - width)}{RESET}'
             )
         else:
             print(
-                f''' {num} |{csi}47m{" " * width}{csi}42m{" "}{csi}47m{" " * (10 + 10 - width)}{reset}'''
+                f' {num} |{CSI}47m{" " * width}{CSI}42m{" "}{CSI}47m{" " * (10 + 10 - width)}{RESET}'
             )
     else:
         if num % 2 == 0:
             print(
-                f''' {num} |{csi}47m{" " * width}{csi}42m{" "}{csi}47m{" " * (10 + 10 - width)}{reset}'''
+                f' {num} |{CSI}47m{" " * width}{CSI}42m{" "}{CSI}47m{" " * (10 + 10 - width)}{RESET}'
             )
         else:
             print(
-                f''' {num} |{csi}47m{" " * width}{csi}42m{" "}{csi}47m{" " * (10 + 10 - width)}{reset}'''
+                f' {num} |{CSI}47m{" " * width}{CSI}42m{" "}{CSI}47m{" " * (10 + 10 - width)}{RESET}'
             )
 
 
-def paint(width, line, num):
-    for height in range(1, 12):
-        graph(height, width, line, num)
+def paint(width, num):
+    for i in range(1, 12):
+        graph(width, num)
         width -= 1
         num -= 1
     print('    0 1 2 3 4 5')
 
 
 width = 10
-line = 1
 num = 10
 
 if __name__ == '__main__':
-    paint(width, line, num)
+    paint(width, num)
