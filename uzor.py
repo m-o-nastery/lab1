@@ -12,6 +12,18 @@ def draw_row(offset, gap, paint_width, offset2):
         f'{CSI}40m{" " * paint_width}'
         f'{CSI}47m{" " * gap}'
         f'{CSI}40m{" " * paint_width}'
+        f'{CSI}47m{" " * offset2}'
+        f'{CSI}40m{" " * paint_width}'
+        f'{CSI}47m{" " * gap}'
+        f'{CSI}40m{" " * paint_width}'
+        f'{CSI}47m{" " * offset2}'
+        f'{CSI}40m{" " * paint_width}'
+        f'{CSI}47m{" " * gap}'
+        f'{CSI}40m{" " * paint_width}'
+        f'{CSI}47m{" " * offset2}'
+        f'{CSI}40m{" " * paint_width}'
+        f'{CSI}47m{" " * gap}'
+        f'{CSI}40m{" " * paint_width}'
         f'{CSI}47m{" " * offset}{RESET}'
     )
 
