@@ -5,13 +5,8 @@ CSI = '\x1B['
 RESET = f'{CSI}0m'
 
 
-def string(num, gr2):
-    if num >= 100:
-        print(f'{num} |    {CSI}47m  {RESET}    {CSI}47m{"  " * gr2}{RESET}')
-    elif num >= 10:
-        print(f' {num} |    {CSI}47m  {RESET}    {CSI}47m{"  " * gr2}{RESET}')
-    else:
-        print(f'  {num} |    {CSI}47m  {RESET}    {CSI}47m{"  " * gr2}{RESET}')
+def column(num, gr2):
+    print(f'{' '*(3-len(str(num)))}{num}|    {CSI}47m  {RESET}    {CSI}47m{"  " * gr2}{RESET}')
 
 
 chet = sum(abs(a[i]) for i in range(0, len(a), 2))
@@ -25,7 +20,7 @@ def paint():
     for i in range(21):
         if num <= gr2_num:
             gr2 = 1
-        string(num, gr2)
+        column(num, gr2)
         num -= 5
     print('         Чёт  Нечёт')
 

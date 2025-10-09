@@ -3,24 +3,9 @@ RESET = f'{CSI}0m'
 
 
 def graph(width, num):
-    if num >= 10:
-        if num % 2 == 0:
-            print(
-                f'{num} |{CSI}47m{" " * width}{CSI}42m{" "}{CSI}47m{" " * (10 + 10 - width)}{RESET}'
-            )
-        else:
-            print(
-                f' {num} |{CSI}47m{" " * width}{CSI}42m{" "}{CSI}47m{" " * (10 + 10 - width)}{RESET}'
-            )
-    else:
-        if num % 2 == 0:
-            print(
-                f' {num} |{CSI}47m{" " * width}{CSI}42m{" "}{CSI}47m{" " * (10 + 10 - width)}{RESET}'
-            )
-        else:
-            print(
-                f' {num} |{CSI}47m{" " * width}{CSI}42m{" "}{CSI}47m{" " * (10 + 10 - width)}{RESET}'
-            )
+    print(
+        f'{" "*(2-len(str(num)))}{num} |{CSI}47m{" " * width}{CSI}42m{" "}{CSI}47m{" " * (10 + 10 - width)}{RESET}'
+    )
 
 
 def paint(width, num):

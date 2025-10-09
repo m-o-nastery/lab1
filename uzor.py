@@ -4,7 +4,7 @@ RESET = f'{CSI}0m'
 
 def draw_row(offset, gap, paint_width, offset2):
     line = f'{CSI}47m{" " * offset}'
-    for i in range(4):
+    for i in range(5):
         line += (
             f'{CSI}40m{" " * paint_width}'
             f'{CSI}47m{" " * gap}'
@@ -27,7 +27,7 @@ def paint_pattern():
     offset2 = 0
     shrinking = True
 
-    for _ in range(7):
+    for i in range(7):
         if gap <= 0:
             shrinking = False
 
